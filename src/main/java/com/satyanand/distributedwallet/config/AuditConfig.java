@@ -13,7 +13,7 @@ import java.util.Optional;
 public class AuditConfig {
     @Bean
     public AuditorAware<String> auditorProvider() {
-        // In a real app, this pulls from SecurityContext (JWT)
+        // this will be taken from SecurityContext (JWT)
         return () -> Optional.ofNullable(SecurityContextHolder.getContext().getAuthentication())
                 .map(auth -> auth.getName())
                 .or(() -> Optional.of("SYSTEM")); // Fallback for registration

@@ -36,6 +36,9 @@ public abstract class BaseEntity {
     @LastModifiedBy
     private String updatedBy;
 
+    // Mandatory for avoiding race conditions
     @Version
     private Long version = 0L;
+    // this field ensures that if two processes try to update a wallet balance at once,
+    // one will fail rather than creating a "negative balance" or "ghost money"
 }
