@@ -1,20 +1,24 @@
 spring:
+  threads:
+    virtual:
+      enabled: true
   datasource:
-    # Global DB for User records
     global:
       jdbc-url: jdbc:mysql://localhost:3306/wallet_global
       username: root
       password: Admin@123
-      driver-class-name: com.mysql.cj.jdbc.Driver
-
-    # Shard 0
     shard0:
       jdbc-url: jdbc:mysql://localhost:3306/wallet_shard_0
       username: root
       password: Admin@123
-
-    # Shard 1
     shard1:
       jdbc-url: jdbc:mysql://localhost:3306/wallet_shard_1
       username: root
       password: Admin@123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        show_sql: true

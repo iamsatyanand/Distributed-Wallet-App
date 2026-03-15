@@ -9,6 +9,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityBeanConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(12); // Industry standard BCrypt
+        return new BCryptPasswordEncoder(12);
     }
 }
